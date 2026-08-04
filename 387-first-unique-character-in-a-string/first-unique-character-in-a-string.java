@@ -1,25 +1,40 @@
 class Solution {
     public int firstUniqChar(String s) {
-        HashMap<Character,Integer> hm=new HashMap<>();
-        char p[]=s.toCharArray();
-        for(char ch:p){
-            if(!hm.containsKey(ch)){
-                hm.put(ch,1);
-            }
-            else{
-                hm.put(ch,hm.get(ch)+1);
-            }
+     int[] freq = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
         }
-        int r=0;
-        for(char ch:p){
-            if(hm.get(ch)==1){
-                return r;
-
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) {
+                return i;
             }
-            r++;
         }
         return -1;
-
-        
     }
 }
+
+// class Solution {
+//     public int firstUniqChar(String s) {
+//         HashMap<Character,Integer> hm=new HashMap<>();
+//         char p[]=s.toCharArray();
+//         for(char ch:p){
+//             if(!hm.containsKey(ch)){
+//                 hm.put(ch,1);
+//             }
+//             else{
+//                 hm.put(ch,hm.get(ch)+1);
+//             }
+//         }
+//         int r=0;
+//         for(char ch:p){
+//             if(hm.get(ch)==1){
+//                 return r;
+
+//             }
+//             r++;
+//         }
+//         return -1;
+
+        
+//     }
+// }
