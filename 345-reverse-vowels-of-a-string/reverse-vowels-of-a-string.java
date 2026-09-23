@@ -11,13 +11,13 @@ class Solution {
             while (left < right && vowels.indexOf(ch[right]) == -1) {
                 right--;
             }
-            if (left < right) {
+
                 char temp = ch[left];
                 ch[left] = ch[right];
                 ch[right] = temp;
                 left++;
                 right--;
-            }
+            
         }
         return new String(ch);
         
